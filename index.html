@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLEEPCALLMU - #TemanCeritamu</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFFFFF;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(45deg, #FF711A, #FFEA4D);
+            color: #FFFFFF;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #FFEA4D;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 100px 20px;
+            background: url('https://i.ibb.co.com/8b6G9qh/Desain-tanpa-judul-2.png') no-repeat center center/cover;
+            color: #FFFFFF;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #FFFFFF;
+            color: #FF711A;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .hero .btn:hover {
+            background-color: #FF711A;
+            color: #FFFFFF;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #FFFFFF;
+            flex-wrap: wrap; /* Allow wrapping to maintain responsiveness */
+        }
+
+        .feature {
+            flex: 1 1 300px; /* Flex grow, shrink, and basis */
+            max-width: 300px;
+            margin: 10px; /* Space between features */
+        }
+
+        .feature img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .video-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .video-item {
+            width: 200px; /* Adjust width as needed */
+            height: 350px; /* Adjust height as needed */
+            background-color: #F9F9F9;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-section {
+            padding: 60px 20px;
+            background-color: #F9F9F9;
+            position: relative;
+        }
+
+        .rounded-top {
+            border-radius: 50px 50px 0 0;
+            background: #FFFFFF;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            margin-top: -50px; /* Overlaps with previous section */
+        }
+
+        .rounded-bottom {
+            border-radius: 0 0 50px 50px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow yang lebih menonjol */
+            margin-top: 20px; /* Jarak tambahan antara halaman Talent Pria dan halaman di bawahnya */
+            position: relative;
+            z-index: 1; /* Pastikan elemen ini berada di atas elemen lainnya */
+        }
+
+        .testimonials {
+            background-color: #F9F9F9;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-container {
+            display: flex;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .testimonial-item {
+            min-width: 100%;
+            padding: 0 10px;
+        }
+
+        .testimonial {
+            max-width: 100%;
+            font-size: 1.2rem;
+            font-style: italic;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .testimonial-nav button {
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: all;
+            transition: background 0.3s ease;
+        }
+
+        .testimonial-nav button:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            background-color: #FF711A;
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .no-videos-message {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #FF711A;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SLEEPCALLMU</div>
+        <nav class="nav">
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Temukan Teman Curhat Anda Sekarang</h1>
+            <p>Jangan ragu untuk berbagi cerita. Temukan pendengar yang tepat untuk Anda.</p>
+            <a href="#pria-section" class="btn">Cari Talent Pria</a>
+            <a href="#wanita-section" class="btn">Cari Talent Wanita</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <img src="https://i.ibb.co.com/Ht6xKr5/Desain-tanpa-judul-3.png" alt="Privasi">
+            <h3>Privasi Terjaga</h3>
+            <p>Semua percakapan Anda aman dan rahasia.</p>
+        </div>
+        <div class="feature">
+            <img src="https://i.ibb.co.com/j4bNHD0/Desain-tanpa-judul-4.png" alt="Profesional">
+            <h3>Profesional</h3>
+            <p>Talent kami berpengalaman dan siap mendengarkan.</p>
+        </div>
+        <div class="feature">
+            <img src="https://i.ibb.co.com/wC8PcWy/Desain-tanpa-judul-5.png" alt="Fleksibilitas">
+            <h3>Fleksibilitas</h3>
+            <p>Waktu fleksibel sesuai kebutuhan Anda.</p>
+        </div>
+    </section>
+
+    <!-- New Page for Talent Wanita -->
+    <section id="wanita-section" class="video-section rounded-top">
+        <h2>Talent Wanita</h2>
+        <input type="text" id="search-wanita" class="search-box" placeholder="Cari video...">
+        <div id="no-videos-message-wanita" class="no-videos-message" style="display:none;">Tidak ada video ditemukan.</div>
+        <div id="video-gallery-wanita" class="video-gallery">
+            <!-- Talent Wanita (Placeholder) -->
+            <!-- Example for 70 videos -->
+            <div class="video-item"><video src="KINARA.mp4" controls></video></div>
+            <div class="video-item"><video src="FEBBY.MP4.mp4" controls></video></div>
+            <div class="video-item"><video src="EVA.MP4.mp4" controls></video></div>
+            <div class="video-item"><video src="JEJE.mp4" controls></video></div>
+            <div class="video-item"><video src="IMELDA.mp4" controls></video></div>
+            <div class="video-item"><video src="FAZRA.mp4" controls></video></div>
+            <div class="video-item"><video src="ADEVA.mp4" controls></video></div>
+            <div class="video-item"><video src="AZRA.mp4" controls></video></div>
+            <div class="video-item"><video src="YASMIN.mp4" controls></video></div>
+            <div class="video-item"><video src="GADIS.mp4" controls></video></div>
+        </div>
+    </section>
+
+    <!-- New Page for Talent Pria -->
+    <section id="pria-section" class="video-section rounded-bottom">
+        <h2>Talent Pria</h2>
+        <input type="text" id="search-pria" class="search-box" placeholder="Cari video...">
+        <div id="no-videos-message-pria" class="no-videos-message" style="display:none;">Tidak ada video ditemukan.</div>
+        <div id="video-gallery-pria" class="video-gallery">
+            <div class="video-item"><video src="ARKAN.MP4.mp4" controls></video></div>
+            <div class="video-item"><video src="DANIEL.MP4.mp4" controls></video></div>
+            <div class="video-item"><video src="GREY.MP4.mp4" controls></video></div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="testimonial-container">
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User1" alt="User1">
+                    <p>"Layanan yang luar biasa! Talent yang saya temui sangat memahami dan membantu saya." - User 1</p>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User2" alt="User2">
+                    <p>"Pengalaman saya sangat positif. Pendengar yang profesional dan sangat mendukung." - User 2</p>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User3" alt="User3">
+                    <p>"Sangat membantu! Saya merasa didengar dan dipahami sepenuhnya." - User 3</p>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User4" alt="User4">
+                    <p>"Layanan ini benar-benar membuat perbedaan dalam hidup saya. Terima kasih!" - User 4</p>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User5" alt="User5">
+                    <p>"Saya merasa sangat nyaman berbicara dengan talent ini. Sangat merekomendasikan!" - User 5</p>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User6" alt="User6">
+                    <p>"Pelayanan yang sangat ramah dan mendukung. Terima kasih atas bantuannya!" - User 6</p>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User7" alt="User7">
+                    <p>"Momen berharga dengan pendengar yang peduli dan profesional." - User 7</p>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User8" alt="User8">
+                    <p>"Layanan yang sangat membantu. Saya merasa lebih baik setelah berbicara." - User 8</p>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User9" alt="User9">
+                    <p>"Pengalaman yang sangat positif dan membantu. Akan kembali lagi!" - User 9</p>
+                </div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial">
+                    <img src="https://via.placeholder.com/50?text=User10" alt="User10">
+                    <p>"Saya sangat puas dengan layanan ini. Pendengar yang luar biasa!" - User 10</p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-nav">
+            <button id="prev-testimonial">&lt;</button>
+            <button id="next-testimonial">&gt;</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SLEEPCALLMU. All rights reserved.</p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+    </footer>
+
+    <script>
+        const testimonials = document.querySelector('.testimonial-container');
+        const prevButton = document.getElementById('prev-testimonial');
+        const nextButton = document.getElementById('next-testimonial');
+        let index = 0;
+
+        function updateTestimonials() {
+            const items = document.querySelectorAll('.testimonial-item');
+            const totalItems = items.length;
+            testimonials.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            const items = document.querySelectorAll('.testimonial-item');
+            const totalItems = items.length;
+            index = (index > 0) ? index - 1 : totalItems - 1;
+            updateTestimonials();
+        });
+
+        nextButton.addEventListener('click', () => {
+            const items = document.querySelectorAll('.testimonial-item');
+            const totalItems = items.length;
+            index = (index < totalItems - 1) ? index + 1 : 0;
+            updateTestimonials();
+        });
+
+        // Initialize
+        updateTestimonials();
+    </script>
+
+    <script>
+        function filterVideos(searchInputId, videoGalleryId, messageId, searchTermId) {
+            const input = document.getElementById(searchInputId);
+            const gallery = document.getElementById(videoGalleryId);
+            const noVideosMessage = document.getElementById(messageId);
+            const searchTermElement = document.getElementById(searchTermId);
+            const videos = gallery.querySelectorAll('.video-item');
+
+            input.addEventListener('input', () => {
+                const filter = input.value.toLowerCase();
+                let hasVisibleVideo = false;
+
+                videos.forEach(video => {
+                    const videoSrc = video.querySelector('video').src.split('/').pop().toLowerCase();
+                    if (videoSrc.includes(filter)) {
+                        video.style.display = '';
+                        hasVisibleVideo = true;
+                    } else {
+                        video.style.display = 'none';
+                    }
+                });
+
+                if (hasVisibleVideo) {
+                    noVideosMessage.style.display = 'none';
+                } else {
+                    noVideosMessage.style.display = 'block';
+                    searchTermElement.textContent = input.value;
+                }
+            });
+        }
+
+        // Initialize search for Talent Pria
+        filterVideos('search-pria', 'video-gallery-pria', 'no-videos-message-pria', 'search-term-pria');
+
+        // Initialize search for Talent Wanita
+        filterVideos('search-wanita', 'video-gallery-wanita', 'no-videos-message-wanita', 'search-term-wanita');
+    </script>
+</body>
+</html>
